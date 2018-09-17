@@ -11,7 +11,7 @@ tags:
 
 ― Ernest Hemingway
 
-
+\--------------------------------------------------------------------------------------------------------------
 
 If you found your way to this blog, you are seeking a better way to live. Ironically, I wrote it for that exact same reason. 
 
