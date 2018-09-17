@@ -1,7 +1,7 @@
 ---
 title: Engineer Perspective
 date: '2018-09-17T06:52:27-06:00'
-cover: /assets/construction-2682641_1920.jpg
+cover: /assets/20160121_190510.jpg
 slug: Engineering
 category: Engineering
 tags:
