@@ -1,7 +1,7 @@
 ---
 title: Man in the Mirror
 date: '2018-09-18T19:20:15-06:00'
-cover: /assets/apartment-chair-contemporary-1166379.jpg
+cover: /assets/blur-cars-clouds-461890.jpg
 slug: self
 category: self
 tags:
