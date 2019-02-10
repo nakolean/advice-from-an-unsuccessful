@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import { Typography } from "@material-ui/core";
 
