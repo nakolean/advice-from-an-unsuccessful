@@ -1,0 +1,9 @@
+{
+  "name": "advice-from-an-unsuccessful",
+  "version": "1.0.0",
+  "description": "Advice blog using React and Gatsby",
+  "main": "index.js",
+  "repository": "https://github.com/nakolean/advice-from-an-unsuccessful.git",
+  "author": "nakolean@gmail.com",
+  "license": "MIT"
+}
