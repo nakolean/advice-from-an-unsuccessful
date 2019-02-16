@@ -1,3 +1,4 @@
+/* eslint quotes: [2, "backtick"] */
 module.exports = {
   siteMetadata: {
     title: `Advice from an Unsuccessful`,
@@ -24,6 +25,18 @@ module.exports = {
         display: `minimal-ui`,
         // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@Theme": `src/theme`,
+          "@Navigation": `src/components/Navigation`
+        },
+        extentions: [
+          `js`
+        ]
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline

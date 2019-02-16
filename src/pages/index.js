@@ -1,17 +1,14 @@
-import React from "react"
+import React from 'react'
+import { MuiThemeProvider } from '@material-ui/core/styles'
+import { Typography } from '@material-ui/core'
 
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
-import { Typography } from "@material-ui/core"
-
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true,
-  },
-})
+import NavBar from '@Navigation'
+import theme from '@Theme'
 
 const IndexPage = () => (
   <MuiThemeProvider theme={theme}>
-    <Typography variant='h2'>Hi people</Typography>
+    <NavBar />
+    <Typography variant="h2">Hi people</Typography>
   </MuiThemeProvider>
 )
 
