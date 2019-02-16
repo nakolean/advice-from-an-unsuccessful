@@ -13,6 +13,7 @@ import { StaticQuery, graphql } from 'gatsby';
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    marginBottom: `${2 * theme.spacing.rem}rem`
   },
   grow: {
     flexGrow: 1,
@@ -27,8 +28,9 @@ const NavBar = ({ classes }) => (
   <StaticQuery
     query={detailsQuery}
     render={data => (
-      <div className={classes.root}>
-        <AppBar>
+        <AppBar
+          position="relative"
+          className={classes.root}>
           <Toolbar>
             {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
@@ -36,10 +38,8 @@ const NavBar = ({ classes }) => (
             <Typography variant="h6" color="inherit" className={classes.grow}>
               {data.site.siteMetadata.title}
             </Typography>
-            <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
-      </div>
     )}
     />
 );

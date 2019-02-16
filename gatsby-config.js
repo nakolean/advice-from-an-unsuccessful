@@ -14,6 +14,19 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/content`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [], // just in case those previously mentioned remark plugins sound cool :)
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -31,10 +44,12 @@ module.exports = {
       options: {
         alias: {
           "@Theme": `src/theme`,
-          "@Navigation": `src/components/Navigation`
+          "@Navigation": `src/components/Navigation`,
+          "@Post": `src/components/Post`,
         },
         extentions: [
-          `js`
+          `js`,
+          `jsx`
         ]
       }
     },
