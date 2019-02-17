@@ -1,15 +1,35 @@
 import React from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import { MuiThemeProvider } from '@material-ui/core/styles'
-import { Typography } from '@material-ui/core'
 
 import NavBar from '@Navigation'
+import PostBoard from '@Layout/PostBoard'
 import theme from '@Theme'
+import { withStyles } from '@material-ui/core';
 
-const IndexPage = () => (
+const styles = theme => ({
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  }
+})
+
+const Root = ({ classes }) => (
   <MuiThemeProvider theme={theme}>
-    <NavBar />
-    <Typography variant="h2">Hi people</Typography>
+    <CssBaseline />
+    <div className={classes.layout}>
+      <main>
+        <NavBar />
+        <PostBoard />
+      </main>
+    </div>
   </MuiThemeProvider>
 )
 
-export default IndexPage
+export default withStyles(styles)(Root)

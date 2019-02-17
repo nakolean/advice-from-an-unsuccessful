@@ -45,6 +45,7 @@ module.exports = {
         alias: {
           "@Theme": `src/theme`,
           "@Navigation": `src/components/Navigation`,
+          "@Layout": `src/components/Layout`,
           "@Post": `src/components/Post`,
         },
         extentions: [
