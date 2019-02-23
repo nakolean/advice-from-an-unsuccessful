@@ -1,7 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Helmet } from 'react-helmet'
-import { graphql } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
 
@@ -24,8 +23,7 @@ const Content = ({ md }) => (
     }} />
 )
 
-const PostCard = ({ data }) => {
-  const { markdownRemark: post } = data
+const PostCard = ({ post }) => {
   const { frontmatter, rawMarkdownBody} = post;
   return (
     <React.Fragment>
@@ -41,16 +39,3 @@ const PostCard = ({ data }) => {
 }
 
 export default withStyles(styles)(PostCard);
-
-export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      rawMarkdownBody
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-      }
-    }
-  }
-`

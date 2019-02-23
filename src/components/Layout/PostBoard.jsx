@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS } from 'immutable'
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery, Link } from 'gatsby';
 import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
 
 const styles = theme => ({
@@ -51,12 +50,14 @@ const PostBoard = ({ classes }) => (
       const posts = fromJS(allMarkdownRemark)
       return (
         <Grid container>
-          {posts.get('edges').map(post => (
-            <Grid item xs={6} className={classes.card}>
-              <PostCard
-                title={post.getIn(['node', 'frontmatter', 'title'])} 
-                date={post.getIn(['node', 'frontmatter', 'title'])}
-                description={post.getIn(['node', 'excerpt'])} />
+          {posts.get('edges').map(( post, index ) => (
+            <Grid item xs={6} className={classes.card} key={index}>
+              <Link to={post.getIn(['node', 'frontmatter', 'path'])}>
+                <PostCard
+                  title={post.getIn(['node', 'frontmatter', 'title'])} 
+                  date={post.getIn(['node', 'frontmatter', 'title'])}
+                  description={post.getIn(['node', 'excerpt'])} />
+              </Link>
             </Grid>
           ))}
         </Grid>
