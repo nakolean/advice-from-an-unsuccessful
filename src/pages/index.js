@@ -24,8 +24,8 @@ const Root = ({ classes }) => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
     <div className={classes.layout}>
+    <NavBar />
       <main>
-        <NavBar />
         <PostBoard />
       </main>
     </div>

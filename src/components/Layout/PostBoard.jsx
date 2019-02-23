@@ -5,14 +5,26 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { graphql, StaticQuery } from 'gatsby';
+import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
 
 const styles = theme => ({
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+  card: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 5,
+  }
 })
+
+const PostCard = ({ title, date, description}) => (
+  <Card>
+    <CardHeader title={title} />
+    <CardContent>
+      <Typography variant="caption">
+        {description}
+      </Typography>
+    </CardContent>
+  </Card>
+
+)
 
 const PostBoard = ({ classes }) => (
   <StaticQuery
@@ -34,17 +46,18 @@ const PostBoard = ({ classes }) => (
           }
         }
       }
-      `}
+    `}
     render={({ allMarkdownRemark }) => {
       const posts = fromJS(allMarkdownRemark)
       return (
         <Grid container>
           {posts.get('edges').map(post => (
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>
-                {post.getIn(['node', 'frontmatter', 'title'])}
-              </Paper>
-           </Grid>
+            <Grid item xs={6} className={classes.card}>
+              <PostCard
+                title={post.getIn(['node', 'frontmatter', 'title'])} 
+                date={post.getIn(['node', 'frontmatter', 'title'])}
+                description={post.getIn(['node', 'excerpt'])} />
+            </Grid>
           ))}
         </Grid>
       )

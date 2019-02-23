@@ -1,45 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-// import IconButton from '@material-ui/core/IconButton'
-// import MenuIcon from '@material-ui/icons/Menu'
-
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, Link } from 'gatsby';
+import { Divider } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    marginBottom: `${2 * theme.spacing.rem}rem`
+    flex: 1,
+    justifyContent: 'center',
   },
-  grow: {
-    flexGrow: 1,
-  },
-  // menuButton: {
-  //   marginLeft: `${theme.spacing.rem}rem`,
-  //   marginRight: `${theme.spacing.rem}rem`,
-  // },
 });
 
 const NavBar = ({ classes }) => (
   <StaticQuery
     query={detailsQuery}
     render={data => (
-        <AppBar
-          position="relative"
-          className={classes.root}>
-          <Toolbar>
-            {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon />
-            </IconButton> */}
-            <Typography variant="h6" color="inherit" className={classes.grow}>
+      <div>
+        <Toolbar className={classes.root}>
+          <Typography variant="h5">
+            <Link to="/">
               {data.site.siteMetadata.title}
-            </Typography>
-          </Toolbar>
-        </AppBar>
+            </Link>
+          </Typography>
+        </Toolbar>
+        <Divider />
+      </div>
     )}
     />
 );
@@ -55,8 +42,6 @@ const detailsQuery = graphql`
     site {
       siteMetadata {
         title
-        description
-        author
       }
     }
   }
