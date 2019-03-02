@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { fromJS } from 'immutable'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { graphql, StaticQuery, Link } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
+import Link from '@Navigation/Link';
 
 const styles = theme => ({
   card: {

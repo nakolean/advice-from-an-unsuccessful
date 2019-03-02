@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import { Divider } from '@material-ui/core';
+import Link from '@Navigation/Link';
 
 const styles = theme => ({
   root: {

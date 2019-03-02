@@ -1,14 +1,17 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import NavBar from '@Navigation'
-import PostCard from '@Post'
+import React from 'react';
+import { graphql } from 'gatsby';
+import NavBar from '@Navigation';
+import PostCard from '@Post';
+import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
+import theme from '@Theme';
 
 const PostPage = ({ data }) => (
-  <React.Fragment>
+  <MuiThemeProvider theme={theme}>
+    <CssBaseline />
     <NavBar />
     <PostCard post={data.markdownRemark} />
-  </React.Fragment>
-)
+  </MuiThemeProvider>
+);
 
 export default PostPage;
 
@@ -23,4 +26,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
