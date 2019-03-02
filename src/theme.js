@@ -1,5 +1,5 @@
-import { createMuiTheme } from '@material-ui/core/styles'
-import indigo from '@material-ui/core/colors/indigo'
+import { createMuiTheme } from '@material-ui/core/styles';
+import indigo from '@material-ui/core/colors/indigo';
 
 const theme = createMuiTheme({
   typography: {
@@ -11,6 +11,6 @@ const theme = createMuiTheme({
   spacing: {
     rem: 1
   }
-})
+});
 
-export default theme
+export default theme;

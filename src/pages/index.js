@@ -1,10 +1,10 @@
-import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import NavBar from '@Navigation'
-import PostBoard from '@Layout/PostBoard'
-import theme from '@Theme'
+import NavBar from '@Navigation';
+import PostBoard from '@Layout/PostBoard';
+import theme from '@Theme';
 import { withStyles } from '@material-ui/core';
 
 const styles = theme => ({
@@ -18,7 +18,7 @@ const styles = theme => ({
       marginRight: 'auto',
     },
   }
-})
+});
 
 const Root = ({ classes }) => (
   <MuiThemeProvider theme={theme}>
@@ -30,6 +30,6 @@ const Root = ({ classes }) => (
       </main>
     </div>
   </MuiThemeProvider>
-)
+);
 
-export default withStyles(styles)(Root)
+export default withStyles(styles)(Root);

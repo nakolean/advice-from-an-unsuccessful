@@ -1,9 +1,9 @@
-const path = require('path')
+const path = require('path');
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const postPage = path.resolve('src/components/Layout/PostPage.jsx')
+  const postPage = path.resolve('src/components/Layout/PostPage.jsx');
 
   return graphql(`
     {
@@ -19,7 +19,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then(result => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      return Promise.reject(result.errors);
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
@@ -27,7 +27,7 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.frontmatter.path,
         component: postPage,
         context: {}, // additional data can be passed via context
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};

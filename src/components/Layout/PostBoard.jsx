@@ -11,16 +11,14 @@ const styles = theme => ({
   card: {
     flexGrow: 1,
     padding: theme.spacing.unit * 5,
-  }
+  },
 });
 
-const PostCard = ({ title, date, description}) => (
+const PostCard = ({ title, date, description }) => (
   <Card>
     <CardHeader title={title} subheader={date} />
     <CardContent>
-      <Typography variant="caption">
-        {description}
-      </Typography>
+      <Typography variant="caption">{description}</Typography>
     </CardContent>
   </Card>
 );
@@ -31,7 +29,7 @@ const PostBoard = ({ classes }) => (
       query {
         allMarkdownRemark {
           edges {
-            node{
+            node {
               frontmatter {
                 title
                 date(formatString: "MMM DD, YYYY")
@@ -50,22 +48,22 @@ const PostBoard = ({ classes }) => (
       const posts = fromJS(allMarkdownRemark);
       return (
         <Grid container>
-            {posts.get('edges').map(( post, index ) => (
-              <Grid item xs={4} className={classes.card} key={index}>
-                <Link to={post.getIn(['node', 'frontmatter', 'path'])}>
-                  <PostCard
-                    title={post.getIn(['node', 'frontmatter', 'title'])} 
-                    date={post.getIn(['node', 'frontmatter', 'date'])}
-                    description={post.getIn(['node', 'excerpt'])} />
-                </Link>
-              </Grid>
-            ))}
+          {posts.get('edges').map((post, index) => (
+            <Grid item xs={4} className={classes.card} key={index}>
+              <Link to={post.getIn(['node', 'frontmatter', 'path'])}>
+                <PostCard
+                  title={post.getIn(['node', 'frontmatter', 'title'])}
+                  date={post.getIn(['node', 'frontmatter', 'date'])}
+                  description={post.getIn(['node', 'excerpt'])}
+                />
+              </Link>
+            </Grid>
+          ))}
         </Grid>
       );
     }}
   />
 );
-      
 
 PostBoard.propTypes = {
   classes: PropTypes.object.isRequired,
