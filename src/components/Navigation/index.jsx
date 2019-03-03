@@ -11,9 +11,10 @@ import Link from '@Navigation/Link';
 const styles = theme => ({
   root: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   divider: {
+    height: theme.spacing.unit / 2,
     marginBottom: theme.spacing.unit * 4,
   }
 });
@@ -25,7 +26,7 @@ const NavBar = ({ classes }) => (
       <Grid container item xs={12}>
         <Toolbar className={classes.root}>
           <Grid item>
-            <Typography variant="h5">
+            <Typography variant="h4">
               <Link to="/">
                 {data.site.siteMetadata.title}
               </Link>
