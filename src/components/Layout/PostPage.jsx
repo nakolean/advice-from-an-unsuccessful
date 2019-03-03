@@ -1,16 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import NavBar from '@Navigation';
+import Base from '@Layout/Base';
 import PostCard from '@Post';
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
-import theme from '@Theme';
-
 const PostPage = ({ data }) => (
-  <MuiThemeProvider theme={theme}>
-    <CssBaseline />
-    <NavBar />
+  <Base>
     <PostCard post={data.markdownRemark} />
-  </MuiThemeProvider>
+  </Base>
 );
 
 export default PostPage;

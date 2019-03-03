@@ -7,7 +7,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Divider } from '@material-ui/core';
 import Link from '@Navigation/Link';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     flex: 1,
     justifyContent: 'center',

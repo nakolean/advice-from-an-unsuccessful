@@ -1,27 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS } from 'immutable';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import { graphql, StaticQuery } from 'gatsby';
-import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
+import { Card, CardContent, Typography } from '@material-ui/core';
 import Link from '@Navigation/Link';
 
-const styles = theme => ({
+const useStyles = makeStyles({
   card: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 5,
+    height: 200,
   },
 });
 
-const PostCard = ({ title, date, description }) => (
-  <Card>
-    <CardHeader title={title} subheader={date} />
-    <CardContent>
-      <Typography variant="caption">{description}</Typography>
-    </CardContent>
-  </Card>
-);
+const PostCard = ({ title, date, description, link }) => {
+  const classes = useStyles();
+  return (
+    <Card>
+      <CardContent className={classes.card}>
+        <Typography component="h2" variant="h5">
+          {title}
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          {date}
+        </Typography>
+        <Typography variant="subtitle1" paragraph>
+          {description}
+        </Typography>
+        <Link to={link}>
+          <Typography variant="subtitle1" color="primary">
+            Continue Reading...
+          </Typography>
+        </Link>
+      </CardContent>
+    </Card>
+  );
+};
 
 const PostBoard = ({ classes }) => (
   <StaticQuery
@@ -47,16 +62,15 @@ const PostBoard = ({ classes }) => (
     render={({ allMarkdownRemark }) => {
       const posts = fromJS(allMarkdownRemark);
       return (
-        <Grid container>
+        <Grid container spacing={40}>
           {posts.get('edges').map((post, index) => (
-            <Grid item xs={4} className={classes.card} key={index}>
-              <Link to={post.getIn(['node', 'frontmatter', 'path'])}>
-                <PostCard
-                  title={post.getIn(['node', 'frontmatter', 'title'])}
-                  date={post.getIn(['node', 'frontmatter', 'date'])}
-                  description={post.getIn(['node', 'excerpt'])}
-                />
-              </Link>
+            <Grid item xs={12} md={6} key={index}>
+              <PostCard
+                title={post.getIn(['node', 'frontmatter', 'title'])}
+                date={post.getIn(['node', 'frontmatter', 'date'])}
+                description={post.getIn(['node', 'excerpt'])}
+                link={post.getIn(['node', 'frontmatter', 'path'])}
+              />
             </Grid>
           ))}
         </Grid>
@@ -69,4 +83,4 @@ PostBoard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PostBoard);
+export default PostBoard;

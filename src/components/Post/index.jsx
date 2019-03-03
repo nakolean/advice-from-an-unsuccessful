@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
 import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     flexGrow: 1
   }
