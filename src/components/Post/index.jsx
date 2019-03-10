@@ -1,14 +1,8 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import { Helmet } from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
 import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
 
-const styles = () => ({
-  root: {
-    flexGrow: 1
-  }
-});
 
 const Content = ({ md }) => (
   <ReactMarkdown 
@@ -41,4 +35,4 @@ const PostCard = ({ post }) => {
   );
 };
 
-export default withStyles(styles)(PostCard);
+export default PostCard;

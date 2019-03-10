@@ -10,7 +10,7 @@ import Link from '@Navigation/Link';
 const useStyles = makeStyles({
   card: {
     flexGrow: 1,
-    height: 200,
+    height: 250,
   },
 });
 
@@ -19,26 +19,36 @@ const PostCard = ({ title, date, description, link }) => {
   return (
     <Card>
       <CardContent className={classes.card}>
-        <Typography component="h2" variant="h5">
-          {title}
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          {date}
-        </Typography>
-        <Typography variant="subtitle1" paragraph>
-          {description}
-        </Typography>
-        <Link to={link}>
-          <Typography variant="subtitle1" color="primary">
-            Continue Reading...
-          </Typography>
-        </Link>
+        <Grid container direction="column" justify="space-between">
+          <Grid item>
+            <Typography variant="h4">
+              {title}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle1" color="textSecondary">
+              {date}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle1" paragraph>
+              {description}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Link to={link}>
+              <Typography variant="subtitle1" color="primary">
+                Continue Reading...
+              </Typography>
+            </Link>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   );
 };
 
-const PostBoard = ({ classes }) => (
+const PostBoard = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -62,9 +72,9 @@ const PostBoard = ({ classes }) => (
     render={({ allMarkdownRemark }) => {
       const posts = fromJS(allMarkdownRemark);
       return (
-        <Grid container spacing={40}>
+        <Grid container item md={6} xs={12} spacing={40}>
           {posts.get('edges').map((post, index) => (
-            <Grid item xs={12} md={6} key={index}>
+            <Grid item xs={12} key={index}>
               <PostCard
                 title={post.getIn(['node', 'frontmatter', 'title'])}
                 date={post.getIn(['node', 'frontmatter', 'date'])}
@@ -78,9 +88,5 @@ const PostBoard = ({ classes }) => (
     }}
   />
 );
-
-PostBoard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default PostBoard;

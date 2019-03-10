@@ -1,11 +1,10 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { withStyles } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/styles';
+import { ThemeProvider, makeStyles } from '@material-ui/styles';
 import NavBar from '@Navigation';
-import theme from '@Theme';
+import Theme from '@Theme';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   layout: {
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,
@@ -16,16 +15,25 @@ const styles = theme => ({
       marginRight: 'auto',
     },
   }
-});
+}));
 
-const Base = ({ classes, children }) => (
-<ThemeProvider theme={theme}>
-    <CssBaseline />
+const ContentWrapper = ({ children }) => {
+  const classes = useStyles();
+  return (
     <div className={classes.layout}>
-      <NavBar />
       {children}
     </div>
+  );
+};
+
+const Base = ({ theme, children }) => (
+<ThemeProvider theme={Theme}>
+    <CssBaseline />
+    <ContentWrapper>
+      <NavBar />
+      {children}
+    </ContentWrapper>
   </ThemeProvider>
 );
 
-export default withStyles(styles)(Base);
+export default Base;

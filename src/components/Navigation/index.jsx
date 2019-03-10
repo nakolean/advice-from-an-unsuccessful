@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,7 +8,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Divider } from '@material-ui/core';
 import Link from '@Navigation/Link';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme =>({
   root: {
     flex: 1,
     justifyContent: 'flex-start',
@@ -17,12 +17,16 @@ const styles = theme => ({
     height: theme.spacing.unit / 2,
     marginBottom: theme.spacing.unit * 4,
   }
-});
+}));
 
-const NavBar = ({ classes }) => (
+const NavBar = () => {
+  const classes = useStyles();
+  
+  return (
   <StaticQuery
     query={detailsQuery}
-    render={data => (
+    render={data => {
+      return (
       <Grid container item xs={12}>
         <Toolbar className={classes.root}>
           <Grid item>
@@ -37,15 +41,16 @@ const NavBar = ({ classes }) => (
           <Divider className={classes.divider} />
         </Grid>
       </Grid>
-    )}
+    );
+    }}
     />
-);
+)};
 
 NavBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NavBar);
+export default NavBar;
 
 const detailsQuery = graphql`
   query {

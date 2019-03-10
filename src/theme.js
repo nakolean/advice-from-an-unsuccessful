@@ -8,9 +8,6 @@ const theme = createMuiTheme({
   palette: {
     primary: indigo
   },
-  spacing: {
-    rem: 1
-  }
 });
 
 export default theme;

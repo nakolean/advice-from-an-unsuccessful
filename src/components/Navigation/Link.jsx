@@ -1,18 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { withStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 
-const styles = () => ({
+const useStyles = makeStyles({
   root: {
     color: 'inherit',
     textDecoration: 'inherit',
   }
 });
 
-const BlankLink = ({ classes, to, children }) => (
-  <Link to={to} className={classes.root}>
-    {children}
-  </Link>
-);
+const BlankLink = ({ to, children }) => {
+  const classes = useStyles();
+  return (
+    <Link to={to} className={classes.root}>
+      {children}
+    </Link>
+  );
+};
 
-export default withStyles(styles)(BlankLink);
+export default BlankLink;
