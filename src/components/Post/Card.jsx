@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Card, CardContent, Typography, Divider } from '@material-ui/core';
 import Link from '@Navigation/Link';
 
 const PostCard = ({ title, date, description, link }) => {
+  const [raised, setRaised] = useState(false);
+
   return (
-    <Card>
+    <Card
+      onMouseOver={() => setRaised(true)}
+      onMouseOut={() => setRaised(false)}
+      raised={raised}>
       <CardContent>
         <Grid container direction="column" spacing={8}>
           <Grid item>
