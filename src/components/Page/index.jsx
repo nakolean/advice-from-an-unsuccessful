@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Base from '@Layout/Base';
-import PostCard from '@Post';
+import { Post } from '@Post';
+
 const PostPage = ({ data }) => (
   <Base>
-    <PostCard post={data.markdownRemark} />
+    <Post post={data.markdownRemark} />
   </Base>
 );
 

@@ -47,7 +47,7 @@ module.exports = {
           "@Theme": `src/theme`,
           "@Navigation": `src/components/Navigation`,
           "@Layout": `src/components/Layout`,
-          "@Post": `src/components/Post`,
+          "@Post": `src/components/Post/index`,
         },
         extentions: [
           `js`,
