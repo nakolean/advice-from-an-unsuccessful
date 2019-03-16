@@ -10,7 +10,6 @@ import Link from '@Navigation/Link';
 const useStyles = makeStyles({
   card: {
     flexGrow: 1,
-    height: 250,
   },
 });
 
@@ -72,7 +71,7 @@ const PostBoard = () => (
     render={({ allMarkdownRemark }) => {
       const posts = fromJS(allMarkdownRemark);
       return (
-        <Grid container item md={6} xs={12} spacing={40}>
+        <Grid container item xs={12} spacing={40}>
           {posts.get('edges').map((post, index) => (
             <Grid item xs={12} key={index}>
               <PostCard

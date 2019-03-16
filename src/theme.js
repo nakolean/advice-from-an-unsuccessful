@@ -1,13 +1,13 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import indigo from '@material-ui/core/colors/indigo';
 
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
+    fontSize: 10,
   },
-  palette: {
-    primary: indigo
-  },
+  spacing: {
+    lgWidth: 1100,
+  }
 });
 
 export default theme;

@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
+      width: theme.spacing.lgWidth,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
@@ -29,8 +29,8 @@ const ContentWrapper = ({ children }) => {
 const Base = ({ theme, children }) => (
 <ThemeProvider theme={Theme}>
     <CssBaseline />
+    <NavBar />
     <ContentWrapper>
-      <NavBar />
       {children}
     </ContentWrapper>
   </ThemeProvider>

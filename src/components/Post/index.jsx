@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { Typography, Card, CardHeader, CardContent } from '@material-ui/core';
 
 
-const Content = ({ md }) => (
+const Markdown = ({ md }) => (
   <ReactMarkdown 
     source={md}
     renderers={{
@@ -28,7 +28,7 @@ const PostCard = ({ post }) => {
           subheader={frontmatter.date}
         />
         <CardContent>
-          <Content md={rawMarkdownBody} />
+          <Markdown md={rawMarkdownBody} />
         </CardContent>
       </Card>
     </React.Fragment>

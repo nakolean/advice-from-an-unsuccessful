@@ -1,8 +1,8 @@
 import React from 'react';
 import { install } from '@material-ui/styles';
-
 install();
-import PostBoard from '@Layout/PostBoard';
+
+import PostBoard from '@Components/Board';
 import Base from '@Layout/Base';
 
 const Root = () => (
